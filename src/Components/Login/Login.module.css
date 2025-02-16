@@ -1,0 +1,124 @@
+.login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  background-image: url("../../../public/Images/background-login.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 991px) {
+  .login {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+@media (min-width: 991px) {
+  .login {
+    gap: 100px;
+  }
+}
+
+.login .title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.login .title h3 {
+  font-size: 56px;
+}
+
+@media (max-width: 991px) {
+  .login .title h3 {
+    font-size: 50px;
+  }
+}
+
+.login .title p {
+  font-size: 15px;
+  color: var(--bg-gray);
+  width: 80%;
+  margin: auto;
+  line-height: 23px;
+}
+
+.login :is(.form, .form form) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .login .form {
+    padding: 0px 5px;
+    padding-bottom: 50px;
+  }
+}
+
+.login .form form {
+  width: 381px;
+  margin: auto;
+  gap: 12px;
+}
+
+@media (max-width: 991px) {
+  .login .form form {
+    width: 100%;
+    padding: 0px 5px;
+  }
+}
+
+.login .form form .elementInput {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.login .form form input {
+  width: calc(100% - 30px);
+  padding: 16px;
+  padding-left: 0px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+
+.login .form form .elementInput .icon {
+  text-align: center;
+  width: 30px;
+  margin: auto;
+  font-size: 20px;
+  color: var(--bg-gray);
+  margin: 0px 10px;
+}
+
+.login .form form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--bg-button);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: var(--font-ABeeZee);
+}
+
+.login .form .signup {
+  text-align: center;
+}
+
+.login .form .signup :is(p, a) {
+  text-decoration: none;
+  color: var(--bg-gray);
+  font-size: 15px;
+}

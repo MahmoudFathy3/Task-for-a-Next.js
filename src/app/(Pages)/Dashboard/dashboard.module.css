@@ -1,0 +1,73 @@
+.dashboard {
+  background: #eee;
+  min-height: 100vh;
+  padding-top:  100px;
+}
+
+.dashboard .information {
+  width: 90%;
+  margin:  auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media (min-width: 768px) {
+ .dashboard .information {
+    width: 500px;
+  }
+}
+
+.dashboard .information .title {
+
+  width: fit-content;
+  margin: auto;
+  padding: 10px;
+  padding: 15px 0px;
+}
+
+.dashboard .information .title h3 {
+  background-color: #b973f3;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #fff;
+}
+
+.dashboard .info {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard .info .ElementInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard .info .ElementInfo p {
+  color: var(--bg-gray);
+  font-size: 16px;
+}
+
+
+.dashboard .logout {
+  padding: 20px;
+  text-align: right;
+}
+
+.dashboard .logout  button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--bg-button);
+  color: #fff;
+  cursor: pointer;
+}
