@@ -3,7 +3,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import Image from 'next/image'
 import styles from "./Login.module.css";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdOutlineVisibilityOff, MdVisibility } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { vaildLogin } from '@/utils/VaildLogin';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation'
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [typePassword, setTypePassword] = useState(false);
   const [errors, setErrors] = useState({ email: '', password: '' });
 
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Login = () => {
     if (token) {
       router.push("/Dashboard")
     }
-  },[router])
+  }, [router])
 
 
   const onSubmit = async (e) => {
@@ -43,6 +44,11 @@ const Login = () => {
         }))
       })
     }
+  };
+
+  const handlerDisable = () => {
+    const isFormValid = email && password
+    return !isFormValid; // Disable if false
   };
 
 
@@ -69,15 +75,20 @@ const Login = () => {
           <div className={styles.elementInput}>
             <RiLockPasswordLine className={styles.icon} />
             <input
-              type="password"
+              type={typePassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+
             />
+            <span className={styles.icon} style={{ cursor: "pointer" }} onClick={() => setTypePassword(!typePassword)}>
+              {typePassword ? <MdOutlineVisibilityOff /> : <MdVisibility />}
+            </span>
+
           </div>
           {errors.password && <span style={{ color: 'brown', fontSize: "14px" }}>{errors.password}</span>}
           {errors.general && <div style={{ color: 'brown', fontSize: "14px" }}>{errors.general}</div>}
-          <button type="submit">{isLoading ? "Loading" : "Login"}</button>
+          <button type="submit" disabled={handlerDisable()} style={{ cursor: handlerDisable() ? "not-allowed" : "pointer" }}>{isLoading ? "Loading" : "Login"}</button>
         </form>
         <div className={styles.signup}>
           <p>Don't have an account? <a href='#'>Sign up</a> </p>
